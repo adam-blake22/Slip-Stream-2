@@ -1,0 +1,4 @@
+SELECT public.create_standalone_task_list(
+	{{inp_new_task_list_name.text}},
+	'671b56dd-18c6-4686-aedc-2891442c4fdf'::uuid
+) AS instance_id;

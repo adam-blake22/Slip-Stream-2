@@ -1,0 +1,2 @@
+DELETE FROM public.tasks 
+WHERE id = {{ lst_tasks.triggeredItem.id }};

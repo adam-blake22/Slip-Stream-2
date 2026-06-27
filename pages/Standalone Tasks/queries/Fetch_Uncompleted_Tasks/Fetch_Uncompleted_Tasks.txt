@@ -1,0 +1,5 @@
+SELECT id, title, is_completed 
+FROM public.tasks 
+WHERE task_list_instance_id IS NULL 
+  AND user_id = '671b56dd-18c6-4686-aedc-2891442c4fdf'
+ORDER BY created_at DESC;

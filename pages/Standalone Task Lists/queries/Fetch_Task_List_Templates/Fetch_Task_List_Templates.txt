@@ -1,0 +1,10 @@
+SELECT
+	t.id AS template_id,
+	t.name,
+	i.id AS instance_id,
+	t.created_at
+FROM public.task_list_templates t
+INNER JOIN public.task_list_instances i ON i.template_id = t.id
+WHERE t.user_id = '671b56dd-18c6-4686-aedc-2891442c4fdf'
+	AND t.is_recurring = FALSE
+ORDER BY t.created_at DESC;

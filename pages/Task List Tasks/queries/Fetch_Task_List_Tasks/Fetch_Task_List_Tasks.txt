@@ -1,0 +1,5 @@
+SELECT id, title, is_completed, due_date, sort_order, task_list_instance_id
+FROM public.tasks 
+WHERE task_list_instance_id = {{appsmith.URL.queryParams.instanceId}}
+AND user_id = '671b56dd-18c6-4686-aedc-2891442c4fdf'
+ORDER BY sort_order ASC, created_at DESC;

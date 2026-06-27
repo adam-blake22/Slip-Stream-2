@@ -1,0 +1,3 @@
+UPDATE public.tasks
+SET is_completed = NOT {{lst_tasks.triggeredItem.is_completed}}
+WHERE id = {{ lst_tasks.triggeredItem.id }};

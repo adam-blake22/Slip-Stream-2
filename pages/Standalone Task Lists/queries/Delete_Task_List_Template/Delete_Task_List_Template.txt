@@ -1,0 +1,2 @@
+DELETE FROM public.task_list_templates 
+WHERE id = {{ lst_task_lists.triggeredItem.template_id }};

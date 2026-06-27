@@ -1,0 +1,28 @@
+{
+  "appIsExample": false,
+  "appLayout": {
+    "type": "MOBILE"
+  },
+  "applicationVersion": 2,
+  "collapseInvisibleWidgets": true,
+  "color": "#D9E7FF",
+  "evaluationVersion": 2,
+  "icon": "calender",
+  "pages": [
+    {
+      "id": "Standalone Tasks",
+      "isDefault": false
+    },
+    {
+      "id": "Standalone Task Lists",
+      "isDefault": true
+    },
+    {
+      "id": "Task List Tasks",
+      "isDefault": false
+    }
+  ],
+  "unpublishedAppLayout": {
+    "type": "MOBILE"
+  }
+}
