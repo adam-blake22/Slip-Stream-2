@@ -20,6 +20,10 @@
     {
       "id": "Task List Tasks",
       "isDefault": false
+    },
+    {
+      "id": "Templates",
+      "isDefault": false
     }
   ],
   "unpublishedAppLayout": {

@@ -1,0 +1,4 @@
+SELECT id, name 
+FROM public.task_list_templates
+WHERE user_id = '671b56dd-18c6-4686-aedc-2891442c4fdf'
+ORDER BY name ASC;

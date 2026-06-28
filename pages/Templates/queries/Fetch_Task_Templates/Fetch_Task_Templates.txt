@@ -1,0 +1,4 @@
+SELECT id, title, sort_order, template_id
+FROM public.task_templates
+WHERE template_id = {{sel_list_template.selectedOptionValue}}
+ORDER BY sort_order ASC;

@@ -1,0 +1,6 @@
+INSERT INTO public.task_templates (title, template_id, sort_order)
+VALUES (
+	{{inp_template_task_title.text}},
+	{{sel_list_template.selectedOptionValue}},
+	{{ (Fetch_Task_Templates.data || []).length }}
+);
