@@ -1,6 +1,6 @@
 {
   "gitSyncId": "6a3c63db69b08c0e37bbd775_e12e86d9-c2d5-43d4-a2ed-ce1c560467b3",
-  "id": "Task List Tasks_Fetch_Task_List_Tasks",
+  "id": "Task List Tasks_Fetch_Tasks",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -27,7 +27,7 @@
         "key": "body"
       }
     ],
-    "name": "Fetch_Task_List_Tasks",
+    "name": "Fetch_Tasks",
     "pageId": "Task List Tasks",
     "runBehaviour": "AUTOMATIC",
     "userSetOnLoad": false

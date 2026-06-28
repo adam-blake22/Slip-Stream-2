@@ -1,6 +1,6 @@
 {
   "gitSyncId": "6a3c63db69b08c0e37bbd775_8676adf7-4c46-4b19-83cc-f7f721caa21a",
-  "id": "Task List Tasks_Create_Task_List_Task",
+  "id": "Task List Tasks_Create_Task",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -27,7 +27,7 @@
         "key": "body"
       }
     ],
-    "name": "Create_Task_List_Task",
+    "name": "Create_Task",
     "pageId": "Task List Tasks",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false

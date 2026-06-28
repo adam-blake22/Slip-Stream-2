@@ -1,0 +1,75 @@
+{
+  "backgroundColor": "{{}}",
+  "borderColor": "#18181b",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "0",
+  "bottomRow": 6,
+  "boxShadow": "none",
+  "defaultModel": "{\n  \"isChecked\": {{ currentItem.is_completed || false }}\n}",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "defaultModel"
+    },
+    {
+      "key": "backgroundColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "backgroundColor"
+    },
+    {
+      "key": "onCheckChange"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onCheckChange"
+    }
+  ],
+  "events": [
+    "onCheckChange"
+  ],
+  "isCanvas": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "sheeexj6k9",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 30,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 17,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onCheckChange": "{{ Complete_Task.run({ id: currentItem.id, isChecked: chk_task_complete.model.isChecked }) }}",
+  "parentColumnSpace": 5.99169921875,
+  "parentId": "r5tngrk0bt",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 11,
+  "srcDoc": {
+    "css": ".app {\n  height: calc(var(--appsmith-ui-height) * 1px);\n  width: calc(var(--appsmith-ui-width) * 1px);\n  justify-content: center;\n  border-radius: var(--appsmith-theme-borderRadius);\n  box-shadow: var(--appsmith-theme-boxShadow);\n  padding: 29px 25px;\n  box-sizing: border-box;\n  font-family: system-ui;\n  background: #fff;\n}\n\n.tip-container {\n  margin-bottom: 20px;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.tip-container h2 {\n  margin-bottom: 20px;\n  font-size: 16px;\n  font-weight: 700;\n}\n\n.tip-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: baseline;\n  margin-bottom: 9px;\n}\n\n.tip-header div {\n  color: #999;\n}\n\n.content {\n  white-space: pre-wrap;\n  word-break: break-word;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.button-container {\n  text-align: right;\n  padding-top: 4px;\n}\n\n.button-container button {\n  margin: 0 10px;\n  cursor: pointer;\n  border-radius: var(--appsmith-theme-borderRadius);\n  padding: 6px 16px;\n  background: none;\n  height: auto;\n  transition: all 0.3s ease;\n}\n\n.button-container button.primary {\n  background: var(--appsmith-theme-primaryColor) !important;\n  color: #fff;\n  border: 1px solid var(--appsmith-theme-primaryColor) !important;\n}\n\n.button-container button.reset {\n  border: 1px solid #999;\n  color: #999;\n  outline: none;\n  box-shadow: none;\n}\n\n.button-container button.reset:hover:not(:disabled) {\n  color: var(--appsmith-theme-primaryColor);\n  border-color: var(--appsmith-theme-primaryColor);\n}\n\n.button-container button.reset:disabled {\n  cursor: default;\n}",
+    "html": "<div id=\"root\"></div>",
+    "js": "import React, { useState, useEffect } from 'https://cdn.jsdelivr.net/npm/react@18.2.0/+esm';\nimport ReactDOM from 'https://cdn.jsdelivr.net/npm/react-dom@18.2.0/+esm';\nimport styled from 'https://cdn.jsdelivr.net/npm/styled-components@6.1.1/+esm';\nconst Checkbox = () => {\n  const [isChecked, setIsChecked] = useState(appsmith.model.isChecked || false);\n\n  // Sync with Appsmith model when data changes from the database\n  useEffect(() => {\n    const unlisten = appsmith.onModelChange(model => {\n      if (model && typeof model.isChecked !== 'undefined') {\n        setIsChecked(model.isChecked);\n      }\n    });\n    return () => unlisten();\n  }, []);\n\n  // Sync with Appsmith when user clicks the checkbox\n  const handleChange = e => {\n    const checked = e.target.checked;\n    setIsChecked(checked);\n    appsmith.updateModel({\n      isChecked: checked\n    });\n    if (appsmith.triggerEvent) {\n      appsmith.triggerEvent(\"onCheckChange\");\n    }\n  };\n  return /*#__PURE__*/React.createElement(StyledWrapper, null, /*#__PURE__*/React.createElement(\"div\", {\n    className: \"cntr\"\n  }, /*#__PURE__*/React.createElement(\"input\", {\n    type: \"checkbox\",\n    id: \"cbx\",\n    className: \"hidden-xs-up\",\n    checked: isChecked,\n    onChange: handleChange\n  }), /*#__PURE__*/React.createElement(\"label\", {\n    htmlFor: \"cbx\",\n    className: \"cbx\"\n  })));\n};\nconst StyledWrapper = styled.div`\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n\n  .cntr {\n    position: relative;\n    display: inline-block;\n  }\n\n  .cbx {\n    position: relative;\n    top: 2px;\n    width: 27px;\n    height: 27px;\n    border: 1px solid #c8ccd4;\n    border-radius: 3px;\n    transition: background 0.1s ease;\n    cursor: pointer;\n    display: block;\n    background: transparent; /* Ensures the checkbox box itself is hollow */\n  }\n\n  .cbx:after {\n    content: '';\n    position: absolute;\n    top: 2px;\n    left: 8px;\n    width: 7px;\n    height: 14px;\n    opacity: 0;\n    transform: rotate(45deg) scale(0);\n    border-right: 2px solid #fff;\n    border-bottom: 2px solid #fff;\n    transition: all 0.3s ease;\n    transition-delay: 0.15s;\n  }\n\n  #cbx:checked ~ .cbx {\n    border-color: transparent;\n    background: #6871f1;\n    animation: jelly 0.6s ease;\n  }\n\n  #cbx:checked ~ .cbx:after {\n    opacity: 1;\n    transform: rotate(45deg) scale(1);\n  }\n\n  @keyframes jelly {\n    from { transform: scale(1, 1); }\n    30% { transform: scale(1.25, 0.75); }\n    40% { transform: scale(0.75, 1.25); }\n    50% { transform: scale(1.15, 0.85); }\n    65% { transform: scale(0.95, 1.05); }\n    75% { transform: scale(1.05, 0.95); }\n    to { transform: scale(1, 1); }\n  }\n\n  .hidden-xs-up {\n    display: none !important;\n  }\n`;\nappsmith.onReady(() => {\n  ReactDOM.render(/*#__PURE__*/React.createElement(Checkbox, null), document.getElementById(\"root\"));\n});"
+  },
+  "theme": "{{appsmith.theme}}",
+  "topRow": 0,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": ".app {\n\theight: calc(var(--appsmith-ui-height) * 1px);\n\twidth: calc(var(--appsmith-ui-width) * 1px);\n\tjustify-content: center;\n\tborder-radius: var(--appsmith-theme-borderRadius);\n\tbox-shadow: var(--appsmith-theme-boxShadow);\n\tpadding: 29px 25px;\n\tbox-sizing: border-box;\n\tfont-family: system-ui;\n\tbackground: #fff;\n}\n\n.tip-container {\n\tmargin-bottom: 20px;\n\tfont-size: 14px;\n\tline-height: 1.571429;\n}\n\n.tip-container h2 {\n\tmargin-bottom: 20px;\n\tfont-size: 16px;\n\tfont-weight: 700;\n}\n\n.tip-header {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: baseline;\n\tmargin-bottom: 9px;\n}\n\n.tip-header div {\n\tcolor: #999;\n}\n\n.content {\n\twhite-space: pre-wrap;\n\tword-break: break-word;\n\tfont-size: 14px;\n\tline-height: 1.571429;\n}\n\n.button-container {\n\ttext-align: right;\n\tpadding-top: 4px;\n}\n\n.button-container button {\n\tmargin: 0 10px;\n\tcursor: pointer;\n\tborder-radius: var(--appsmith-theme-borderRadius);\n\tpadding: 6px 16px;\n\tbackground: none;\n\theight: auto;\n\ttransition: all 0.3s ease;\n}\n\n.button-container button.primary {\n\tbackground: var(--appsmith-theme-primaryColor) !important;\n\tcolor: #fff;\n\tborder: 1px solid var(--appsmith-theme-primaryColor) !important;\n}\n\n.button-container button.reset {\n\tborder: 1px solid #999;\n\tcolor: #999;\n\toutline: none;\n\tbox-shadow: none;\n}\n\n.button-container button.reset:hover:not(:disabled) {\n\tcolor: var(--appsmith-theme-primaryColor);\n\tborder-color: var(--appsmith-theme-primaryColor);\n}\n\n.button-container button.reset:disabled {\n\tcursor: default;\n}",
+    "html": "<div id=\"root\"></div>",
+    "js": "import React, { useState, useEffect } from 'https://cdn.jsdelivr.net/npm/react@18.2.0/+esm';\nimport ReactDOM from 'https://cdn.jsdelivr.net/npm/react-dom@18.2.0/+esm';\nimport styled from 'https://cdn.jsdelivr.net/npm/styled-components@6.1.1/+esm';\n\nconst Checkbox = () => {\n  const [isChecked, setIsChecked] = useState(appsmith.model.isChecked || false);\n\n  // Sync with Appsmith model when data changes from the database\n  useEffect(() => {\n    const unlisten = appsmith.onModelChange((model) => {\n      if (model && typeof model.isChecked !== 'undefined') {\n        setIsChecked(model.isChecked);\n      }\n    });\n    return () => unlisten();\n  }, []);\n\n  // Sync with Appsmith when user clicks the checkbox\n  const handleChange = (e) => {\n    const checked = e.target.checked;\n    setIsChecked(checked);\n    appsmith.updateModel({ isChecked: checked });\n    \n    if (appsmith.triggerEvent) {\n      appsmith.triggerEvent(\"onCheckChange\");\n    }\n  };\n\n  return (\n    <StyledWrapper>\n      <div className=\"cntr\">\n        <input \n          type=\"checkbox\" \n          id=\"cbx\" \n          className=\"hidden-xs-up\" \n          checked={isChecked}\n          onChange={handleChange}\n        />\n        <label htmlFor=\"cbx\" className=\"cbx\" />\n      </div>\n    </StyledWrapper>\n  );\n}\n\nconst StyledWrapper = styled.div`\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n\n  .cntr {\n    position: relative;\n    display: inline-block;\n  }\n\n  .cbx {\n    position: relative;\n    top: 2px;\n    width: 27px;\n    height: 27px;\n    border: 1px solid #c8ccd4;\n    border-radius: 3px;\n    transition: background 0.1s ease;\n    cursor: pointer;\n    display: block;\n    background: transparent; /* Ensures the checkbox box itself is hollow */\n  }\n\n  .cbx:after {\n    content: '';\n    position: absolute;\n    top: 2px;\n    left: 8px;\n    width: 7px;\n    height: 14px;\n    opacity: 0;\n    transform: rotate(45deg) scale(0);\n    border-right: 2px solid #fff;\n    border-bottom: 2px solid #fff;\n    transition: all 0.3s ease;\n    transition-delay: 0.15s;\n  }\n\n  #cbx:checked ~ .cbx {\n    border-color: transparent;\n    background: #6871f1;\n    animation: jelly 0.6s ease;\n  }\n\n  #cbx:checked ~ .cbx:after {\n    opacity: 1;\n    transform: rotate(45deg) scale(1);\n  }\n\n  @keyframes jelly {\n    from { transform: scale(1, 1); }\n    30% { transform: scale(1.25, 0.75); }\n    40% { transform: scale(0.75, 1.25); }\n    50% { transform: scale(1.15, 0.85); }\n    65% { transform: scale(0.95, 1.05); }\n    75% { transform: scale(1.05, 0.95); }\n    to { transform: scale(1, 1); }\n  }\n\n  .hidden-xs-up {\n    display: none !important;\n  }\n`;\n\nappsmith.onReady(() => {\n  ReactDOM.render(<Checkbox />, document.getElementById(\"root\"));\n});"
+  },
+  "version": 1,
+  "widgetId": "vjwnki29s9",
+  "widgetName": "chk_task_complete"
+}

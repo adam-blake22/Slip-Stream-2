@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "UPDATE public.tasks\nSET is_completed = NOT {{lst_tasks.triggeredItem.is_completed}}\nWHERE id = {{ lst_tasks.triggeredItem.id }};",
+      "body": "UPDATE public.tasks \nSET is_completed = {{ this.params.isChecked }} \nWHERE id = {{ this.params.id }};",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

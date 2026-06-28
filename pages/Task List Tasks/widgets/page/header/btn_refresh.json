@@ -1,5 +1,5 @@
 {
-  "animateLoading": true,
+  "animateLoading": false,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "bottomRow": 6,
   "boxShadow": "none",
@@ -10,6 +10,7 @@
       "key": "borderRadius"
     }
   ],
+  "dynamicPropertyPathList": [],
   "dynamicTriggerPathList": [
     {
       "key": "onClick"
@@ -20,20 +21,20 @@
   "isLoading": false,
   "isVisible": true,
   "key": "xyeqjs2oj6",
-  "leftColumn": 47,
+  "leftColumn": 59,
   "minWidth": 50,
   "mobileBottomRow": 6,
   "mobileLeftColumn": 50,
   "mobileRightColumn": 54,
   "mobileTopRow": 2,
   "needsErrorInfo": false,
-  "onClick": "{{Fetch_Task_List_Tasks.run()}}",
+  "onClick": "{{Fetch_Tasks.run()}}",
   "parentColumnSpace": 6.21875,
   "parentId": "o7mvgocbmw",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
   "responsiveBehavior": "hug",
-  "rightColumn": 51,
+  "rightColumn": 63,
   "topRow": 2,
   "type": "ICON_BUTTON_WIDGET",
   "version": 1,
