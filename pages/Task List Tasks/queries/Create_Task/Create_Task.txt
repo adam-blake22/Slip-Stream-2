@@ -3,12 +3,14 @@ INSERT INTO public.tasks (
     due_date, 
     is_completed, 
     user_id, 
-    task_list_instance_id
+    task_list_instance_id,
+		sort_order
 )
 VALUES (
     {{ inp_task_title.text }}, 
     CURRENT_DATE, 
     FALSE, 
     '671b56dd-18c6-4686-aedc-2891442c4fdf', 
-    {{ appsmith.URL.queryParams.instanceId }}
+    {{ appsmith.URL.queryParams.instanceId }},
+		{{ (Fetch_Tasks.data || []).length }}
 );

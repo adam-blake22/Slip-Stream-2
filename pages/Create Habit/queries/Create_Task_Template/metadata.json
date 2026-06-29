@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "6a3c63db69b08c0e37bbd775_8676adf7-4c46-4b19-83cc-f7f721caa21a",
-  "id": "Task List Tasks_Create_Task",
+  "gitSyncId": "6a3c63db69b08c0e37bbd775_73c5a638-27dd-48bf-b0d9-cf434adfb148",
+  "id": "Create Habit_Create_Task_Template",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "INSERT INTO public.tasks (\n    title, \n    due_date, \n    is_completed, \n    user_id, \n    task_list_instance_id,\n\t\tsort_order\n)\nVALUES (\n    {{ inp_task_title.text }}, \n    CURRENT_DATE, \n    FALSE, \n    '671b56dd-18c6-4686-aedc-2891442c4fdf', \n    {{ appsmith.URL.queryParams.instanceId }},\n\t\t{{ (Fetch_Tasks.data || []).length }}\n);",
+      "body": "INSERT INTO public.task_templates (title, template_id, sort_order)\nVALUES (\n\t{{inp_habit_name.text}},\n\t{{sel_list_template.selectedOptionValue}},\n\t{{ (Fetch_Task_Templates.data || []).length }}\n);",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -27,8 +27,8 @@
         "key": "body"
       }
     ],
-    "name": "Create_Task",
-    "pageId": "Task List Tasks",
+    "name": "Create_Task_Template",
+    "pageId": "Create Habit",
     "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }

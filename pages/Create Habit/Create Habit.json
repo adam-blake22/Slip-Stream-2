@@ -1,23 +1,23 @@
 {
-  "gitSyncId": "6a3c63db69b08c0e37bbd775_7650c1a9-4405-4fbf-ba7b-149a04d3b400",
+  "gitSyncId": "6a3c63db69b08c0e37bbd775_7c928b64-4a5b-4dba-a019-9e8b69d5b626",
   "unpublishedPage": {
     "isHidden": false,
     "layouts": [
       {
         "dsl": {
           "backgroundColor": "none",
-          "bottomRow": 850,
+          "bottomRow": 490,
           "canExtend": true,
           "containerStyle": "none",
           "detachFromLayout": true,
           "dynamicBindingPathList": [],
           "leftColumn": 0,
-          "minHeight": 910,
+          "minHeight": 820,
           "parentColumnSpace": 1,
           "parentRowSpace": 1,
           "rightColumn": 1224,
           "snapColumns": 64,
-          "snapRows": 89,
+          "snapRows": 80,
           "topRow": 0,
           "type": "CANVAS_WIDGET",
           "version": 94,
@@ -26,7 +26,7 @@
         }
       }
     ],
-    "name": "Task List Tasks",
-    "slug": "task-list-tasks"
+    "name": "Create Habit",
+    "slug": "create-habit"
   }
 }

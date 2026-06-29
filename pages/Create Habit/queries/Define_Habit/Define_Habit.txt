@@ -1,0 +1,7 @@
+SELECT public.define_habit(
+	{{ sel_list_template.selectedOptionValue }}::uuid,
+	{{ inp_habit_name.text }},
+	{{ inp_habit_desc.text }},
+	{{ sel_habit_frequency.selectedOptionValue }},
+	'671b56dd-18c6-4686-aedc-2891442c4fdf'::uuid
+) AS habit_id;

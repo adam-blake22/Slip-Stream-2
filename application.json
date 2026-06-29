@@ -24,6 +24,10 @@
     {
       "id": "Templates",
       "isDefault": false
+    },
+    {
+      "id": "Create Habit",
+      "isDefault": false
     }
   ],
   "unpublishedAppLayout": {
